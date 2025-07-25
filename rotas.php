@@ -7,9 +7,7 @@ if (!$controller) {
 }
 
 if ( ! file_exists("controllers/{$controller}.controller.php") ) {
-    // abort(404);
-    echo 'Página não encontrada';
-    die();
+    abort(404);
 }
 
 require "controllers/{$controller}.controller.php";
