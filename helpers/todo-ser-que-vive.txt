@@ -1,0 +1,55 @@
+nome:Teu santo nome
+artista:Gabriela Rocha
+tom:Tom: G
+intro:[Intro] C  G
+cifra:             Am7
+letra:Todo ser que vive
+cifra:              Em
+letra:Louve ao nome do Senhor
+cifra:          C
+letra:Toda criatura se derrame
+cifra:          G
+letra:Aos Seus pés
+
+cifra:              Am7
+letra:Ao som da Sua voz
+cifra:           Em
+letra:O universo se desfaz
+cifra:              C
+letra:Não há outro nome
+cifra:                        G
+letra:Comparado ao grande Eu Sou
+
+[Pré-Refrão] 
+
+cifra:Am7              C
+letra:  E mesmo sendo pó
+cifra:              G
+letra:Com tudo que há em mim
+cifra:    D
+letra:Confessarei
+cifra:Am7                 C
+letra:  Que céus e terra passarão
+cifra:    G          D
+letra:Mas o Teu nome é eterno
+
+[Refrão] 
+
+cifra:Em                C
+letra:Todo joelho dobrará
+cifra:              G
+letra:Ao ouvir Teu nome
+cifra:           D
+letra:Teu Santo nome
+cifra:Em                C
+letra:Todo ser confessará
+cifra:                    G
+letra:Louvado seja o Teu nome
+cifra:           D
+letra:Teu santo nome
+
+[Pré-Refrão] 
+
+[Refrão 3x]
+
+[Final] C  Am7  C

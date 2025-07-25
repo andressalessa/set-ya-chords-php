@@ -1,0 +1,146 @@
+nome:Eu não sou mais órfão
+artista:Cassiane
+tom: E (capotraste na 2ª casa)
+
+intro:[Intro] D  E  F#m
+intro:[Intro] D  E  F#m
+
+[Primeira Parte]
+
+cifra: F#m         D
+letra:Me conheces bem
+cifra: A          E
+letra:Sabes quem eu sou
+cifra:F#m     D      A   E
+letra:E mesmo assim me amas
+cifra: F#m         D
+letra:Mesmo sem merecer
+cifra: A             E
+letra:Teu amor me alcançou
+cifra: F#m       D
+letra:Mergulhado estou
+cifra:     A     E
+letra:Em Tua graça
+
+[Pré-Refrão]
+
+cifra:    D9    E9          F#m   C#m
+letra:Teu amor quebrou os grilhões
+cifra:    D9    E9          F#m
+letra:Teu amor me fez viver outra vez
+cifra:    D9    E9     F#m    C#m
+letra:Teu amor me fez ser livre
+cifra:    D9    E9     F#m
+letra:Teu amor me fez seu filho
+
+[Refrão]
+
+cifra: F#m  E        D
+letra:E eu não sou mais órfão
+cifra:         E
+letra:Eu tenho um Pai
+cifra:             C#m
+letra:E o meu Pai me ama
+cifra:       F#m
+letra:Ele é tão bom
+cifra:               D
+letra:E eu não sou mais órfão
+cifra:         E
+letra:Eu tenho um Pai
+cifra:             C#m
+letra:E o meu Pai me ama
+cifra:       F#m
+letra:Ele é tão bom
+cifra:               D
+letra:E eu não sou mais
+cifra:        E
+letra:Órfão, não, não
+cifra:          F#m
+letra:Eu tenho um Pai
+cifra:              D
+letra:E eu não sou mais
+cifra:        E
+letra:Órfão, não, não
+cifra:          F#m
+letra:Eu tenho um Pai
+
+[Pré-Refrão]
+
+cifra:    D9    E9   F#m6  C#m
+letra:Teu amor me fez livre
+cifra:    D9    E9   F#m
+letra:Teu amor me fez livre
+cifra:    D9    E9     F#m       C#m
+letra:Teu amor me fez ser livre, ser livre
+cifra:    D9    E9         F#m
+letra:Teu amor me fez ser tão livre
+
+[Refrão]
+
+cifra: F#m  E        D
+letra:E eu não sou mais órfão
+cifra:         E
+letra:Eu tenho um Pai
+cifra:             C#m
+letra:E o meu Pai me ama
+cifra:       F#m
+letra:Ele é tão bom
+cifra:               D
+letra:E eu não sou mais órfão
+cifra:         E
+letra:Eu tenho um Pai
+cifra:             C#m
+letra:E o meu Pai me ama
+cifra:       F#m
+letra:Ele é tão bom
+cifra:               D
+letra:E eu não sou mais
+cifra:        E
+letra:Órfão, não, não
+cifra:          F#m
+letra:Eu tenho um Pai
+cifra:              D
+letra:E eu não sou mais
+cifra:        E
+letra:Órfão, não, não
+cifra:          F#m
+letra:Eu tenho um Pai
+
+( D  E  F#m  F#m6 )
+( D  E  A9 )
+
+[Refrão]
+
+cifra:               D9
+letra:E eu não sou mais órfão
+cifra:         E9
+letra:Eu tenho um Pai
+cifra:             C#m
+letra:E o meu Pai me ama
+cifra:       F#m
+letra:Ele é tão bom
+cifra:E/A           C#m
+letra:E eu não sou mais órfão
+cifra:             E9
+letra:Eu tenho um Pai
+cifra:             C#m
+letra:E o meu Pai me ama
+cifra:       F#m
+letra:Ele é tão bom
+
+cifra:               D9
+letra:E eu não sou mais órfão
+cifra:         E9
+letra:Eu tenho um Pai
+cifra:             C#m
+letra:E o meu Pai me ama
+cifra:       F#m
+letra:Ele é tão bom
+cifra:E/A           C#m
+letra:E eu não sou mais órfão
+cifra:             E9
+letra:Eu tenho um Pai
+cifra:             C#m
+letra:E o meu Pai me ama
+cifra:       F#m
+letra:Ele é tão bom

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>title</title>
+</head>
+<body class="bg-slate-900">
+
+    <div class="flex flex-col gap-2">
+        <div class="flex text-white text-center">
+            <span class="w-xs ">-----</span>
+            <div class="w-sm">50</div>
+            <div class="w-sm">100</div>
+            <div class="w-sm">200</div>
+            <div class="w-sm">300</div>
+            <div class="w-sm">400</div>
+            <div class="w-sm">500</div>
+            <div class="w-sm">600</div>
+            <div class="w-sm">700</div>
+            <div class="w-sm">800</div>
+            <div class="w-sm">900</div>
+            <div class="w-sm">950</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Red -> </span>
+            <div class="bg-red-50 w-sm">#fef2f2</div>
+            <div class="bg-red-100 w-sm">#fee2e2</div>
+            <div class="bg-red-200 w-sm">#fecaca</div>
+            <div class="bg-red-300 w-sm">#fca5a5</div>
+            <div class="bg-red-400 w-sm">#f87171</div>
+            <div class="bg-red-500 w-sm">#ef4444</div>
+            <div class="bg-red-600 w-sm">#dc2626</div>
+            <div class="bg-red-700 w-sm">#b91c1c</div>
+            <div class="bg-red-800 w-sm">#991b1b</div>
+            <div class="bg-red-900 w-sm">#7f1d1d</div>
+            <div class="bg-red-950 w-sm">#450a0a</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Orange -> </span>
+            <div class="bg-orange-50 w-sm">#fff7ed</div>
+            <div class="bg-orange-100 w-sm">#ffedd5</div>
+            <div class="bg-orange-200 w-sm">#fed7aa</div>
+            <div class="bg-orange-300 w-sm">#fdba74</div>
+            <div class="bg-orange-400 w-sm">#fb923c</div>
+            <div class="bg-orange-500 w-sm">#f97316</div>
+            <div class="bg-orange-600 w-sm">#ea580c</div>
+            <div class="bg-orange-700 w-sm">#c2410c</div>
+            <div class="bg-orange-800 w-sm">#9a3412</div>
+            <div class="bg-orange-900 w-sm">#7c2d12</div>
+            <div class="bg-orange-950 w-sm">#431407</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Amber -> </span>
+            <div class="bg-amber-50 w-sm">#fffbeb</div>
+            <div class="bg-amber-100 w-sm">#fef3c7</div>
+            <div class="bg-amber-200 w-sm">#fde68a</div>
+            <div class="bg-amber-300 w-sm">#fcd34d</div>
+            <div class="bg-amber-400 w-sm">#fbbf24</div>
+            <div class="bg-amber-500 w-sm">#f59e0b</div>
+            <div class="bg-amber-600 w-sm">#d97706</div>
+            <div class="bg-amber-700 w-sm">#b45309</div>
+            <div class="bg-amber-800 w-sm">#92400e</div>
+            <div class="bg-amber-900 w-sm">#78350f</div>
+            <div class="bg-amber-950 w-sm">#451a03</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Yellow -> </span>
+            <div class="bg-yellow-50 w-sm">#fef9c3</div>
+            <div class="bg-yellow-100 w-sm">#fef08a</div>
+            <div class="bg-yellow-200 w-sm">#fde047</div>
+            <div class="bg-yellow-300 w-sm">#facc15</div>
+            <div class="bg-yellow-400 w-sm">#eab308</div>
+            <div class="bg-yellow-500 w-sm">#ca8a04</div>
+            <div class="bg-yellow-600 w-sm">#a16207</div>
+            <div class="bg-yellow-700 w-sm">#854d0e</div>
+            <div class="bg-yellow-800 w-sm">#713f12</div>
+            <div class="bg-yellow-900 w-sm">#633112</div>
+            <div class="bg-yellow-950 w-sm">#442a0c</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Lime -> </span>
+            <div class="bg-lime-50 w-sm">#f7fee7</div>
+            <div class="bg-lime-100 w-sm">#ecfccb</div>
+            <div class="bg-lime-200 w-sm">#d9f99d</div>
+            <div class="bg-lime-300 w-sm">#bef264</div>
+            <div class="bg-lime-400 w-sm">#a3e635</div>
+            <div class="bg-lime-500 w-sm">#84cc16</div>
+            <div class="bg-lime-600 w-sm">#65a30d</div>
+            <div class="bg-lime-700 w-sm">#4d7c0f</div>
+            <div class="bg-lime-800 w-sm">#3f6212</div>
+            <div class="bg-lime-900 w-sm">#365314</div>
+            <div class="bg-lime-950 w-sm">#1a2e05</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Green -> </span>
+            <div class="bg-green-50 w-sm">#f0fdf4</div>
+            <div class="bg-green-100 w-sm">#dcfce7</div>
+            <div class="bg-green-200 w-sm">#bbf7d0</div>
+            <div class="bg-green-300 w-sm">#86efac</div>
+            <div class="bg-green-400 w-sm">#4ade80</div>
+            <div class="bg-green-500 w-sm">#22c55e</div>
+            <div class="bg-green-600 w-sm">#16a34a</div>
+            <div class="bg-green-700 w-sm">#15803d</div>
+            <div class="bg-green-800 w-sm">#166534</div>
+            <div class="bg-green-900 w-sm">#14532d</div>
+            <div class="bg-green-950 w-sm">#052e16</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Emerald -> </span>
+            <div class="bg-emerald-50 w-sm">#ecfdf5</div>
+            <div class="bg-emerald-100 w-sm">#d1fae5</div>
+            <div class="bg-emerald-200 w-sm">#a7f3d0</div>
+            <div class="bg-emerald-300 w-sm">#6ee7b7</div>
+            <div class="bg-emerald-400 w-sm">#34d399</div>
+            <div class="bg-emerald-500 w-sm">#10b981</div>
+            <div class="bg-emerald-600 w-sm">#059669</div>
+            <div class="bg-emerald-700 w-sm">#047857</div>
+            <div class="bg-emerald-800 w-sm">#065f46</div>
+            <div class="bg-emerald-900 w-sm">#064e3b</div>
+            <div class="bg-emerald-950 w-sm">#022c22</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Teal -> </span>
+            <div class="bg-teal-50 w-sm">#f0fdfa</div>
+            <div class="bg-teal-100 w-sm">#ccfbf1</div>
+            <div class="bg-teal-200 w-sm">#99f6e4</div>
+            <div class="bg-teal-300 w-sm">#5eead4</div>
+            <div class="bg-teal-400 w-sm">#2dd4bf</div>
+            <div class="bg-teal-500 w-sm">#14b8a6</div>
+            <div class="bg-teal-600 w-sm">#0d9488</div>
+            <div class="bg-teal-700 w-sm">#0f766e</div>
+            <div class="bg-teal-800 w-sm">#115e59</div>
+            <div class="bg-teal-900 w-sm">#134e4a</div>
+            <div class="bg-teal-950 w-sm">#0f2922</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Cyan -> </span>
+            <div class="bg-cyan-50 w-sm">#ecfeff</div>
+            <div class="bg-cyan-100 w-sm">#cffafe</div>
+            <div class="bg-cyan-200 w-sm">#a5f3fc</div>
+            <div class="bg-cyan-300 w-sm">#67e8f9</div>
+            <div class="bg-cyan-400 w-sm">#22d3ee</div>
+            <div class="bg-cyan-500 w-sm">#06b6d4</div>
+            <div class="bg-cyan-600 w-sm">#0891b2</div>
+            <div class="bg-cyan-700 w-sm">#0e7490</div>
+            <div class="bg-cyan-800 w-sm">#155e75</div>
+            <div class="bg-cyan-900 w-sm">#164e63</div>
+            <div class="bg-cyan-950 w-sm">#083344</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Sky -> </span>
+            <div class="bg-sky-50 w-sm">#e0f2fe</div>
+            <div class="bg-sky-100 w-sm">#bae6fd</div>
+            <div class="bg-sky-200 w-sm">#7dd3fc</div>
+            <div class="bg-sky-300 w-sm">#38bdf8</div>
+            <div class="bg-sky-400 w-sm">#0ea5e9</div>
+            <div class="bg-sky-500 w-sm">#0284c7</div>
+            <div class="bg-sky-600 w-sm">#0369a1</div>
+            <div class="bg-sky-700 w-sm">#075985</div>
+            <div class="bg-sky-800 w-sm">#0c4a6e</div>
+            <div class="bg-sky-900 w-sm">#0a4260</div>
+            <div class="bg-sky-950 w-sm">#082f49</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Blue -> </span>
+            <div class="bg-blue-50 w-sm">#eff6ff</div>
+            <div class="bg-blue-100 w-sm">#dbeafe</div>
+            <div class="bg-blue-200 w-sm">#bfdbfe</div>
+            <div class="bg-blue-300 w-sm">#93c5fd</div>
+            <div class="bg-blue-400 w-sm">#60a5fa</div>
+            <div class="bg-blue-500 w-sm">#3b82f6</div>
+            <div class="bg-blue-600 w-sm">#2563eb</div>
+            <div class="bg-blue-700 w-sm">#1d4ed8</div>
+            <div class="bg-blue-800 w-sm">#1e40af</div>
+            <div class="bg-blue-900 w-sm">#1e3a8a</div>
+            <div class="bg-blue-950 w-sm">#172554</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Indigo -> </span>
+            <div class="bg-indigo-50 w-sm">#eef2ff</div>
+            <div class="bg-indigo-100 w-sm">#e0e7ff</div>
+            <div class="bg-indigo-200 w-sm">#c7d2fe</div>
+            <div class="bg-indigo-300 w-sm">#a5b4fc</div>
+            <div class="bg-indigo-400 w-sm">#818cf8</div>
+            <div class="bg-indigo-500 w-sm">#6366f1</div>
+            <div class="bg-indigo-600 w-sm">#4f46e5</div>
+            <div class="bg-indigo-700 w-sm">#4338ca</div>
+            <div class="bg-indigo-800 w-sm">#3730a3</div>
+            <div class="bg-indigo-900 w-sm">#312e81</div>
+            <div class="bg-indigo-950 w-sm">#1e1b4b</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Violet -> </span>
+            <div class="bg-violet-50 w-sm">#f5f3ff</div>
+            <div class="bg-violet-100 w-sm">#ede9fe</div>
+            <div class="bg-violet-200 w-sm">#ddd6fe</div>
+            <div class="bg-violet-300 w-sm">#c4b5fd</div>
+            <div class="bg-violet-400 w-sm">#a78bfa</div>
+            <div class="bg-violet-500 w-sm">#8b5cf6</div>
+            <div class="bg-violet-600 w-sm">#7c3aed</div>
+            <div class="bg-violet-700 w-sm">#6d28d9</div>
+            <div class="bg-violet-800 w-sm">#5b21b6</div>
+            <div class="bg-violet-900 w-sm">#4c1d95</div>
+            <div class="bg-violet-950 w-sm">#2e1065</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Purple -> </span>
+            <div class="bg-purple-50 w-sm">#faf5ff</div>
+            <div class="bg-purple-100 w-sm">#f3e8ff</div>
+            <div class="bg-purple-200 w-sm">#e9d5ff</div>
+            <div class="bg-purple-300 w-sm">#d8b4fe</div>
+            <div class="bg-purple-400 w-sm">#c084fc</div>
+            <div class="bg-purple-500 w-sm">#a855f7</div>
+            <div class="bg-purple-600 w-sm">#9333ea</div>
+            <div class="bg-purple-700 w-sm">#7e22ce</div>
+            <div class="bg-purple-800 w-sm">#6b21a8</div>
+            <div class="bg-purple-900 w-sm">#581c87</div>
+            <div class="bg-purple-950 w-sm">#3b0764</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Fuchsia -> </span>
+            <div class="bg-fuchsia-50 w-sm">#fdf4ff</div>
+            <div class="bg-fuchsia-100 w-sm">#fae8ff</div>
+            <div class="bg-fuchsia-200 w-sm">#f5d0fe</div>
+            <div class="bg-fuchsia-300 w-sm">#f0abfc</div>
+            <div class="bg-fuchsia-400 w-sm">#e879f9</div>
+            <div class="bg-fuchsia-500 w-sm">#d946ef</div>
+            <div class="bg-fuchsia-600 w-sm">#c026d3</div>
+            <div class="bg-fuchsia-700 w-sm">#a21caf</div>
+            <div class="bg-fuchsia-800 w-sm">#86198f</div>
+            <div class="bg-fuchsia-900 w-sm">#701a75</div>
+            <div class="bg-fuchsia-950 w-sm">#4a044e</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Pink -> </span>
+            <div class="bg-pink-50 w-sm">#fdf2f8</div>
+            <div class="bg-pink-100 w-sm">#fce7f3</div>
+            <div class="bg-pink-200 w-sm">#fbcfe8</div>
+            <div class="bg-pink-300 w-sm">#f9a8d4</div>
+            <div class="bg-pink-400 w-sm">#f472b6</div>
+            <div class="bg-pink-500 w-sm">#ec4899</div>
+            <div class="bg-pink-600 w-sm">#db2777</div>
+            <div class="bg-pink-700 w-sm">#be185d</div>
+            <div class="bg-pink-800 w-sm">#9d174d</div>
+            <div class="bg-pink-900 w-sm">#831843</div>
+            <div class="bg-pink-950 w-sm">#500724</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Rose -> </span>
+            <div class="bg-rose-50 w-sm">#fff1f2</div>
+            <div class="bg-rose-100 w-sm">#ffe4e6</div>
+            <div class="bg-rose-200 w-sm">#fecdd3</div>
+            <div class="bg-rose-300 w-sm">#fda4af</div>
+            <div class="bg-rose-400 w-sm">#fb7185</div>
+            <div class="bg-rose-500 w-sm">#f43f5e</div>
+            <div class="bg-rose-600 w-sm">#e11d48</div>
+            <div class="bg-rose-700 w-sm">#be123c</div>
+            <div class="bg-rose-800 w-sm">#9f1239</div>
+            <div class="bg-rose-900 w-sm">#881337</div>
+            <div class="bg-rose-950 w-sm">#4c0519</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Slate -> </span>
+            <div class="bg-slate-50 w-sm">#f8fafc</div>
+            <div class="bg-slate-100 w-sm">#f1f5f9</div>
+            <div class="bg-slate-200 w-sm">#e2e8f0</div>
+            <div class="bg-slate-300 w-sm">#cbd5e1</div>
+            <div class="bg-slate-400 w-sm">#94a3b8</div>
+            <div class="bg-slate-500 w-sm">#64748b</div>
+            <div class="bg-slate-600 w-sm">#475569</div>
+            <div class="bg-slate-700 w-sm">#334155</div>
+            <div class="bg-slate-800 w-sm">#1e293b</div>
+            <div class="bg-slate-900 w-sm">#0f172a</div>
+            <div class="bg-slate-950 w-sm">#020617</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Gray -> </span>
+            <div class="bg-gray-50 w-sm">#f9fafb</div>
+            <div class="bg-gray-100 w-sm">#f3f4f6</div>
+            <div class="bg-gray-200 w-sm">#e5e7eb</div>
+            <div class="bg-gray-300 w-sm">#d1d5db</div>
+            <div class="bg-gray-400 w-sm">#9ca3af</div>
+            <div class="bg-gray-500 w-sm">#6b7280</div>
+            <div class="bg-gray-600 w-sm">#4b5563</div>
+            <div class="bg-gray-700 w-sm">#374151</div>
+            <div class="bg-gray-800 w-sm">#1f2937</div>
+            <div class="bg-gray-900 w-sm">#111827</div>
+            <div class="bg-gray-950 w-sm">#030712</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Zinc -> </span>
+            <div class="bg-zinc-50 w-sm">#fafafa</div>
+            <div class="bg-zinc-100 w-sm">#f4f4f5</div>
+            <div class="bg-zinc-200 w-sm">#e4e4e7</div>
+            <div class="bg-zinc-300 w-sm">#d4d4d8</div>
+            <div class="bg-zinc-400 w-sm">#a1a1aa</div>
+            <div class="bg-zinc-500 w-sm">#71717a</div>
+            <div class="bg-zinc-600 w-sm">#52525b</div>
+            <div class="bg-zinc-700 w-sm">#3f3f46</div>
+            <div class="bg-zinc-800 w-sm">#27272a</div>
+            <div class="bg-zinc-900 w-sm">#18181b</div>
+            <div class="bg-zinc-950 w-sm">#09090b</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Neutral -> </span>
+            <div class="bg-neutral-50 w-sm">#fafafa</div>
+            <div class="bg-neutral-100 w-sm">#f5f5f5</div>
+            <div class="bg-neutral-200 w-sm">#e5e5e5</div>
+            <div class="bg-neutral-300 w-sm">#d4d4d4</div>
+            <div class="bg-neutral-400 w-sm">#a3a3a3</div>
+            <div class="bg-neutral-500 w-sm">#737373</div>
+            <div class="bg-neutral-600 w-sm">#525252</div>
+            <div class="bg-neutral-700 w-sm">#404040</div>
+            <div class="bg-neutral-800 w-sm">#262626</div>
+            <div class="bg-neutral-900 w-sm">#171717</div>
+            <div class="bg-neutral-950 w-sm">#0a0a0a</div>
+        </div>
+        <div class="flex">
+            <span class="text-white w-xs">Stone -> </span>
+            <div class="bg-stone-50 w-sm">#fafaf9</div>
+            <div class="bg-stone-100 w-sm">#f5f5f4</div>
+            <div class="bg-stone-200 w-sm">#e7e5e4</div>
+            <div class="bg-stone-300 w-sm">#d6d3d1</div>
+            <div class="bg-stone-400 w-sm">#a8a29e</div>
+            <div class="bg-stone-500 w-sm">#78716c</div>
+            <div class="bg-stone-600 w-sm">#57534e</div>
+            <div class="bg-stone-700 w-sm">#44403c</div>
+            <div class="bg-stone-800 w-sm">#292524</div>
+            <div class="bg-stone-900 w-sm">#1c1917</div>
+            <div class="bg-stone-950 w-sm">#0c0a09</div>
+        </div>
+    </div>
+</body>
+</html>
