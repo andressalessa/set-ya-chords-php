@@ -38,6 +38,27 @@ class DB
 
         return false;
     }
+
+    public function updateFromObject(string $table, object $obj)
+    {
+        $data = get_object_vars($obj);
+
+        if (empty($data['id'])) {
+            throw new InvalidArgumentException('ID é obrigatório para update.');
+        }
+
+        $id = $data['id'];
+        unset($data['id']);
+
+        $set = implode(', ', array_map(fn($key) => "$key = :$key", array_keys($data)));
+
+        $query = "UPDATE $table SET $set WHERE id = :id";
+        // $stmt = $this->db->prepare($query);
+
+        $data['id'] = $id;
+
+        return $this->db->prepare($query)->execute($data);
+    }
 }
 
 $database = new DB();
