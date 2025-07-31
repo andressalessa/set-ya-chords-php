@@ -1,5 +1,17 @@
 <?php
 
+function limparCifraParaEdicao(string $htmlFormatado): string
+{
+    // Remove todas as tags <span ...> mas mantém o conteúdo dentro
+    $semSpan = preg_replace('/<span[^>]*>(.*?)<\/span>/i', '$1', $htmlFormatado);
+
+    // Substitui <br> e <br /> por quebras de linha reais
+    $comQuebras = preg_replace('/<br\s*\/?>/i', "\n", $semSpan);
+
+    // Remove espaços excessivos no início/fim
+    return trim($comQuebras);
+}
+
 function separarCifrasELetras(array $linhas): string
 {
     $cifra = '';
@@ -22,7 +34,7 @@ function separarCifrasELetras(array $linhas): string
         if ($total > 0 && $acordes / $total >= 0.5) {
             $cifra .= "<span class='text-emerald-300'>$linha</span><br>";
         } else {
-            $cifra .= "$linha<br><br>";
+            $cifra .= "$linha<br>";
         }
     }
 
