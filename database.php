@@ -53,7 +53,6 @@ class DB
         $set = implode(', ', array_map(fn($key) => "$key = :$key", array_keys($data)));
 
         $query = "UPDATE $table SET $set WHERE id = :id";
-        // $stmt = $this->db->prepare($query);
 
         $data['id'] = $id;
 
