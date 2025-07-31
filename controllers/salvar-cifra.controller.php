@@ -3,7 +3,6 @@
 $textoCifra = $_REQUEST['cifra'] ?? '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['_method'])) {
-    // dd($textoCifra);
     $linhas = explode("\n", $textoCifra);
 
     $cifra = new Cifra();
@@ -26,14 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['_method'])) {
     }
 }
 
-if (
-    $_SERVER['REQUEST_METHOD'] === 'POST'
-    && isset($_POST['_method'])
-    && $_POST['_method'] === 'PUT'
-) {
-
-    // dd($textoCifra);
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_method']) && $_POST['_method'] === 'PUT') {
     $linhas = explode("\n", $textoCifra);
 
     $cifra = new Cifra();
@@ -45,7 +37,7 @@ if (
     $cifra->cifra = '';
 
     $cifra->cifra = separarCifrasELetras($linhas);
-    
+
     $updated = $database->updateFromObject('cifras', $cifra);
 
     if ($updated) {
