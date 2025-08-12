@@ -50,6 +50,8 @@ class DB
         $id = $data['id'];
         unset($data['id']);
 
+        $data = array_filter($data, fn($val, $key) => $val !== null, ARRAY_FILTER_USE_BOTH);
+        
         $set = implode(', ', array_map(fn($key) => "$key = :$key", array_keys($data)));
 
         $query = "UPDATE $table SET $set WHERE id = :id";

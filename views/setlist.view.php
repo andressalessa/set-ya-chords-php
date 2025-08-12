@@ -86,7 +86,7 @@
                         onclick="openNewScreen(event, '/play-setlist?id=<?= $setlist->id ?>')"></i>
                     <i
                         class="bi bi-pencil-square ml-2 text-lg"
-                        onclick="editSetlist(event)"></i>
+                        onclick="editSetlist(event, this)"></i>
                 </div>
 
                 <div class="hidden pl-6 mt-2 text-slate-200 space-y-1">
@@ -98,7 +98,6 @@
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
-
                 <div class="shadow-sm shadow-slate-700 rounded hidden w-[25rem] mt-6 p-1" id="edit-form">
                     <?php require "views/partials/_alter-setlist-form.php" ?>
                 </div>
@@ -159,7 +158,8 @@
 
     function editSetlist(event, header) {
         event.stopPropagation();
-        const form = document.querySelector("#edit-form");
+        const parent = header.parentElement.parentElement;
+        const form = parent.querySelector("#edit-form");
         form.classList.toggle("hidden");
     }
 </script>
