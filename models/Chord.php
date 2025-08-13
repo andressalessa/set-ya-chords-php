@@ -1,6 +1,6 @@
 <?php
 
-class Cifra {
+class Chord {
     public $id;
     public $nome;
     public $artista;

@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require "database.php";
-require "models/cifra.php";
+require "models/Chord.php";
 require "models/Setlist.php";
 require "models/SetlistItems.php";
 require "helpers.php";

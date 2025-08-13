@@ -29,42 +29,13 @@
                 </button>
             </form>
         </div>
-        <?php foreach ($setlists as $setlist) : ?>
-            <!-- <div class="gap-2 mx-auto max-w-lg min-w-sm">
-                <div
-                    class="group bg-slate-800 text-slate-100 p-2 rounded-md flex justify-between items-center hover:bg-slate-700 cursor-pointer"
-                    onclick="toggleSetlist(this)">
-                    <?php if (! empty($setlist->total_chords)) : ?>
-                        <i class="bi bi-chevron-right text-slate-100 my-auto transition-transform"></i>
-                        <?php else: ?>
-                            <i class="bi bi-chevron-right text-slate-100 my-auto transition-transform sr-only"></i>
-                    <?php endif; ?>
-                    <p class="flex-1 ml-2"><?= $setlist->name ?></p>
-                    <p class="text-xs text-slate-300 italic"><?= $setlist->total_chords ?> cifras</p>
-                    <p class="text-xs text-slate-300 italic"><?= $setlist->dt_event ?></p>
-                    <i
-                        class="bi bi-box-arrow-up-right text-slate-100 my-auto ml-4 text-lg"
-                        onclick="openNewScreen(event, '/play-setlist?id=<?= $setlist->id ?>')"></i>
-                    <i
-                        class="bi bi-pencil-square ml-2 text-lg"
-                        onclick="editSetlist(event, '/alter-setlist?id=<?= $setlist->id ?>')"></i>
-                </div>
 
-                <div class="hidden pl-6 mt-2 text-slate-200 space-y-1">
-                    <?php foreach ($setlistItems as $setlistItem) : ?>
-                        <?php if ($setlistItem->setlist_id == $setlist->id) : ?>
-                            <a href="/cifra?id=<?= $setlistItem->chord_id ?>" target="_blank" class="underline underline-offset-4">
-                                <p><?= $setlistItem->chord_name ?> <span class="text-slate-400 italic">(<?= $setlistItem->artista ?>)</span></p>
-                            </a>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </div>
-            </div> -->
+        <?php foreach ($setlists as $setlist) : ?>
             <div class="gap-2 mx-auto max-w-lg min-w-sm">
                 <div
                     class="group bg-slate-800 text-slate-100 p-2 rounded-md flex justify-between items-center hover:bg-slate-700 cursor-pointer"
                     onclick="toggleSetlist(this)">
-                    <?php if (! empty($setlist->total_chords)) : ?>
+                    <?php if (!empty($setlist->total_chords)) : ?>
                         <i class="bi bi-chevron-right text-slate-100 my-auto transition-transform"></i>
                     <?php else: ?>
                         <i class="bi bi-chevron-right text-slate-100 my-auto transition-transform sr-only"></i>
@@ -89,57 +60,68 @@
                         onclick="editSetlist(event, this)"></i>
                 </div>
 
+                <!-- Lista editável -->
                 <div class="hidden pl-6 mt-2 text-slate-200 space-y-1">
-                    <?php foreach ($setlistItems as $setlistItem) : ?>
-                        <?php if ($setlistItem->setlist_id == $setlist->id) : ?>
-                            <a href="/cifra?id=<?= $setlistItem->chord_id ?>" target="_blank" class="underline underline-offset-4">
-                                <p><?= $setlistItem->chord_name ?> <span class="text-slate-400 italic">(<?= $setlistItem->artista ?>)</span></p>
-                            </a>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+                    <div class="sortable-list" data-setlist-id="<?= $setlist->id ?>">
+                        <?php $countItems = 0; ?>
+                        <?php foreach ($setlistItems as $setlistItem) : ?>
+                            <?php if ($setlistItem->setlist_id == $setlist->id) : ?>
+                                <?php $countItems++; ?>
+                                <div
+                                    class="flex items-center justify-between bg-slate-700 p-2 rounded"
+                                    data-setlistId="<?= $setlist->id ?>"
+                                    data-id="<?= $setlistItem->setlist_item_id ?>"
+                                    data-position="<?= $setlistItem->position ?>">
+                                    <span class="cursor-move text-slate-400 mr-2">
+                                        <i class="bi bi-list"></i>
+                                    </span>
+                                    <p class="flex-1"><?= $setlistItem->chord_name ?>
+                                        <span class="text-slate-400 italic">(<?= $setlistItem->artista ?>)</span>
+                                    </p>
+                                    <button type="button" class="text-red-400 hover:text-red-600 cursor-pointer" onclick="removeChord(this)">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <!-- Botão adicionar cifra -->
+                    <button 
+                        type="button" 
+                        class="mt-2 px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded"
+                        onclick="openAddChordModal(<?= $setlist->id ?>, <?= $countItems + 1 ?>)">
+                        + Adicionar cifra
+                    </button>
                 </div>
+
+                <!-- Form original (caso precise manter) -->
                 <div class="shadow-sm shadow-slate-700 rounded hidden w-[25rem] mt-6 p-1" id="edit-form">
                     <?php require "views/partials/_alter-setlist-form.php" ?>
                 </div>
             </div>
-
         <?php endforeach; ?>
+
+        <!-- Modal de adicionar cifra -->
+        <div id="addChordModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="bg-slate-800 p-4 rounded shadow-lg w-[30rem]">
+                <h2 class="text-lg font-bold text-white mb-2">Adicionar cifra</h2>
+                <input type="text" id="searchChord" class="w-full p-2 mb-2 rounded bg-slate-700 text-white" placeholder="Buscar cifra...">
+                <div id="searchResults" class="space-y-1 text-white"></div>
+                <button onclick="closeAddChordModal()" class="mt-2 px-3 py-1 bg-red-500 hover:bg-red-400 text-white rounded">Fechar</button>
+            </div>
+        </div>
+
 
     </div>
     <div class="md:shadow-sm md:shadow-slate-700 md:rounded hidden md:block md:w-[25rem] md:mt-6 md:ml-6 p-4">
         <div class="flex mt-2">
             <h1 class="text-xl text-slate-100 mx-auto">Novo setlist</h1>
         </div>
-        <!-- <form class="flex flex-col mt-3" method="POST" action="/save-setlist">
-            <label class="text-emerald-300 text-sm">Nome</label>
-            <input
-                type="text"
-                name="name"
-                placeholder="Digite o nome do setlist..."
-                class="bg-slate-800 px-2 py-1 rounded-lg 
-                   placeholder:text-slate-300 text-sm
-                   focus:outline-none focus:ring-1 
-                   focus:ring-emerald-300/75" />
-
-            <label class="text-emerald-300 text-sm mt-2">Data</label>
-            <input
-                type="date"
-                name="dt_event"
-                class="bg-slate-800 px-2 py-1 rounded-lg text-sm
-                   focus:outline-none focus:ring-1 
-                   focus:ring-emerald-300/75 w-1/2" />
-
-            <button
-                type="submit"
-                class="group mt-3 border border-emerald-300 active:border-cyan-300 
-                   px-2 py-1 rounded-lg w-20 ml-auto text-sm">
-                Salvar
-                <i class="bi bi-file-earmark-check text-emerald-300 group-active:text-cyan-300"></i>
-            </button>
-        </form> -->
         <?php require "views/partials/_new-setlist-form.php" ?>
     </div>
 </div>
+
 
 <script>
     function toggleSetlist(header) {
@@ -152,7 +134,6 @@
 
     function openNewScreen(event, page) {
         event.stopPropagation(); // impede que o clique vá para o pai
-        alert("Abrir nova tela");
         window.location.href = page;
     }
 
@@ -161,5 +142,95 @@
         const parent = header.parentElement.parentElement;
         const form = parent.querySelector("#edit-form");
         form.classList.toggle("hidden");
+    }
+
+    document.querySelectorAll('.sortable-list').forEach(list => {
+        new Sortable(list, {
+            handle: '.cursor-move',
+            animation: 150,
+            onEnd: function(evt) {
+                const setlistId = evt.to.dataset.setlistId;
+                const order = Array.from(evt.to.children).map(el => el.dataset.position);
+                fetch('/update-setlist-order', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        setlistId,
+                        order
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            }
+        });
+    });
+
+    function removeChord(btn) {
+        const itemId = btn.closest('[data-id]').dataset.id;
+        const setlistId = btn.closest('[data-id]').dataset.setlistid;
+
+        fetch('/remove-setlist-item', {
+            method: 'POST',
+            body: JSON.stringify({
+                itemId,
+                setlistId
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
+            btn.closest('[data-id]').remove();
+        });
+    }
+
+    let currentSetlistId = null;
+    let nextPosition = null;
+
+    function openAddChordModal(setlistId, nexPosition) {
+        currentSetlistId = setlistId;
+        nextPosition = nexPosition;
+        document.getElementById('addChordModal').classList.remove('hidden');
+    }
+
+    function closeAddChordModal() {
+        document.getElementById('addChordModal').classList.add('hidden');
+        document.getElementById('searchResults').innerHTML = '';
+        document.getElementById('searchChord').value = '';
+    }
+
+    document.getElementById('searchChord').addEventListener('input', function() {
+        const query = this.value;
+        if (query.length < 2) return;
+        fetch(`/search-chords?q=${encodeURIComponent(query)}&setlistId=${currentSetlistId}`)
+            .then(res => res.json())
+            .then(data => {
+                const results = document.getElementById('searchResults');
+                results.innerHTML = '';
+                data.forEach(chord => {
+                    const btn = document.createElement('button');
+                    btn.textContent = `${chord.nome} (${chord.artista})`;
+                    btn.className = "block w-full text-left p-2 hover:bg-slate-600 rounded";
+                    btn.onclick = () => addChordToSetlist(chord.id);
+                    results.appendChild(btn);
+                });
+            });
+    });
+
+
+    function addChordToSetlist(chordId) {
+        fetch('/add-setlist-item', {
+            method: 'POST',
+            body: JSON.stringify({
+                setlistId: currentSetlistId,
+                chordId,
+                nextPosition
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
+            closeAddChordModal();
+            location.reload(); // Ou atualizar só a lista via JS
+        });
     }
 </script>

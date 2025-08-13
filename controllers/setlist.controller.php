@@ -24,9 +24,10 @@ $setlistItems = $database
                 si.chord_id,
                 c.nome as chord_name,
                 c.artista
-            from cifras c
+            from chords c
             inner join setlist_items si on sl.id = si.setlist_id
             inner join setlists sl on c.id = si.chord_id
+            order by si.position
         ",
         class: SetlistItems::class
     )

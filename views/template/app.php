@@ -8,6 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <style>
+        #toggle-scroll {
+            right: -28px !important;
+        }
+    </style>
 </head>
 
 <body class="bg-slate-900">
@@ -28,6 +34,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="autoscroll.js"></script>
 
     <script>
         flatpickr('#flatpickr-date', {

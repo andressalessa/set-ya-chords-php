@@ -4,8 +4,8 @@ $id = $_REQUEST['id'];
 
 $cifra = $database
     ->query(
-        "select * from cifras where id = :id", 
-        Cifra::class, 
+        "select * from chords where id = :id", 
+        Chord::class, 
         ['id' => $id]
     )
     ->fetch();

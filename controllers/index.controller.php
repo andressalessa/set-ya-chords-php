@@ -5,15 +5,15 @@ $pesquisa = $_REQUEST['pesquisar'] ?? null;
 if (!$pesquisa) {
     $cifras = $database
         ->query(
-            "select * from cifras",
-            Cifra::class
+            "select * from chords",
+            Chord::class
         )
         ->fetchAll();
 } else {
     $cifras = $database
         ->query(
-            "select * from cifras where nome like :pesquisa or artista like :pesquisa",
-            Cifra::class,
+            "select * from chords where nome like :pesquisa or artista like :pesquisa",
+            Chord::class,
             ['pesquisa' => "%{$pesquisa}%"]
         )
         ->fetchAll();

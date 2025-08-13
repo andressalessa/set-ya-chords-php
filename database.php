@@ -1,12 +1,27 @@
 <?php
 
-class DB
+class Database
 {
     private $db;
 
     public function __construct()
     {
         $this->db = new PDO("sqlite:database.sqlite");
+        // $this->db = new PDO($this->getDsn($config));
+    }
+
+    private function getDsn($config)
+    {
+        $driver = $config['driver'];
+        unset($config['driver']);
+
+        $dsn = $driver . ':' . http_build_query($config, '', ';');
+
+        if ($driver == 'sqlite') {
+            $dsn = $driver . ':' . $config['database'];
+        }
+
+        return $dsn;
     }
 
     public function query(string $query, $class = null, array $params = [])
@@ -60,6 +75,15 @@ class DB
 
         return $this->db->prepare($query)->execute($data);
     }
+
+    public function deleteFromObject(string $table, object $obj)
+    {
+        if (empty($obj->id)) {
+            throw new InvalidArgumentException('ID é obrigatório para delete.');
+        }
+
+        return $this->db->prepare("DELETE FROM $table WHERE id = :id")->execute(['id' => $obj->id]);
+    }
 }
 
-$database = new DB();
+$database = new Database();
