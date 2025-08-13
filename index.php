@@ -17,6 +17,7 @@ require "rotas.php";
  * 1. Terminar a edição de cifra ✅
  * 2. Corrigir a pesquisa ✅
  * 3. Criar o cadastro de setlist ✅
- * 4. Criar a tela de visualização do setlist
+ * 4. Criar a tela de visualização do setlist ✅
  * 5. Melhorar o navbar
+ * 6. Corrigir pesquisa de setlist ✅
  */

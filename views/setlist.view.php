@@ -60,7 +60,6 @@
                         onclick="editSetlist(event, this)"></i>
                 </div>
 
-                <!-- Lista editável -->
                 <div class="hidden mt-2 text-slate-200 space-y-1 p-2">
                     <div class="sortable-list" data-setlist-id="<?= $setlist->id ?>">
                         <?php $countItems = 0; ?>
@@ -86,7 +85,6 @@
                         <?php endforeach; ?>
                     </div>
 
-                    <!-- Botão adicionar cifra -->
                     <button 
                         type="button" 
                         class="mt-2 px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded"
@@ -95,14 +93,12 @@
                     </button>
                 </div>
 
-                <!-- Form original (caso precise manter) -->
                 <div class="shadow-sm shadow-slate-700 rounded hidden w-[25rem] mt-6 p-1" id="edit-form">
                     <?php require "views/partials/_alter-setlist-form.php" ?>
                 </div>
             </div>
         <?php endforeach; ?>
 
-        <!-- Modal de adicionar cifra -->
         <div id="addChordModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div class="bg-slate-800 p-4 rounded shadow-lg w-[30rem]">
                 <h2 class="text-lg font-bold text-white mb-2">Adicionar cifra</h2>
@@ -114,14 +110,15 @@
 
 
     </div>
-    <div class="md:shadow-sm md:shadow-slate-700 md:rounded hidden md:block md:w-[25rem] md:mt-6 md:ml-6 p-4">
-        <div class="flex mt-2">
-            <h1 class="text-xl text-slate-100 mx-auto">Novo setlist</h1>
+    <div>
+        <div class="md:shadow-sm md:shadow-slate-700 md:rounded hidden md:block w-[25rem] mt-6 ml-6 p-4">
+            <div class="flex mt-2">
+                <h1 class="text-xl text-slate-100 mx-auto">Novo setlist</h1>
+            </div>
+            <?php require "views/partials/_new-setlist-form.php" ?>
         </div>
-        <?php require "views/partials/_new-setlist-form.php" ?>
     </div>
 </div>
-
 
 <script>
     function toggleSetlist(header) {

@@ -23,12 +23,10 @@
                     class="bg-slate-800 border border-slate-600 text-slate-100 text-sm rounded-lg 
                             focus:ring-emerald-300 focus:border-emerald-300 block w-40 md:w-2/3 lg:w-2/3 pl-10 p-2.5"
                     placeholder="Selecione..."
-                    value="<?php echo $setlist->dt_event; ?>">
+                    >
             </div>
             <button
                 type="submit"
-                action="/save-setlist"
-                method="POST"
                 class="group mt-2 border-1 border-emerald-300 active:border-cyan-300 px-1 py-1 rounded-xl w-24 ml-auto">
                 Salvar
                 <i class="bi bi-file-earmark-check text-emerald-300 group-active:text-cyan-300"></i>

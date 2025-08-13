@@ -1,18 +1,37 @@
 <?php
+$pesquisa = $_REQUEST['pesquisar'] ?? null;
 
-$setlists = $database
-    ->query(
-        query: "
-            select sl.id,
-                sl.name,
-                strftime('%d/%m/%Y', sl.dt_event) as dt_event,
-                count(si.id) as total_chords
-            from setlists sl
-            left join setlist_items si on sl.id = si.setlist_id
-            group by sl.id
-        ",
-        class: Setlist::class
-    )->fetchAll();
+if (!$pesquisa) {
+    $setlists = $database
+        ->query(
+            query: "
+                select sl.id,
+                    sl.name,
+                    strftime('%d/%m/%Y', sl.dt_event) as dt_event,
+                    count(si.id) as total_chords
+                from setlists sl
+                left join setlist_items si on sl.id = si.setlist_id
+                group by sl.id
+            ",
+            class: Setlist::class
+        )->fetchAll();
+} else {
+    $setlists = $database
+        ->query(
+            query: "
+                select sl.id,
+                    sl.name,
+                    strftime('%d/%m/%Y', sl.dt_event) as dt_event,
+                    count(si.id) as total_chords
+                from setlists sl
+                left join setlist_items si on sl.id = si.setlist_id
+                where sl.name like :pesquisa
+                group by sl.id
+            ",
+            class: Setlist::class,
+            params: ['pesquisa' => "%{$pesquisa}%"]
+        )->fetchAll();
+}
 
 $setlistItems = $database
     ->query(
@@ -33,7 +52,4 @@ $setlistItems = $database
     )
     ->fetchAll();
 
-// dd($setlistItems);
-
-// dd($setlists);
 view('setlist', compact('setlists', 'setlistItems'));
