@@ -52,7 +52,7 @@
             setlistLink.classList.remove('bg-emerald-300/15', 'px-2', 'py-1', 'rounded-xl');
 
             // Adiciona as classes ao link correspondente à URL atual
-            if (currentPath === '/' || currentPath === '/nova-cifra') {
+            if (currentPath === '/' || currentPath === '/nova-cifra' || currentPath === '/cifra') {
                 homeLink.classList.add('bg-emerald-300/15', 'px-2', 'py-1', 'rounded-xl');
             } else if (currentPath === '/setlist' || currentPath === '/play-setlist' || currentPath === '/save-setlist') {
                 setlistLink.classList.add('bg-emerald-300/15', 'px-2', 'py-1', 'rounded-xl');

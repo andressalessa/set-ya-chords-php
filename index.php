@@ -18,6 +18,6 @@ require "rotas.php";
  * 2. Corrigir a pesquisa ✅
  * 3. Criar o cadastro de setlist ✅
  * 4. Criar a tela de visualização do setlist ✅
- * 5. Melhorar o navbar
+ * 5. Melhorar o navbar ✅
  * 6. Corrigir pesquisa de setlist ✅
  */
