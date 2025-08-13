@@ -93,7 +93,7 @@
                     </button>
                 </div>
 
-                <div class="shadow-sm shadow-slate-700 rounded hidden w-[25rem] mt-6 p-1" id="edit-form">
+                <div class="shadow-sm shadow-slate-700 rounded hidden w-[20rem] mt-6 p-1 mx-auto" id="edit-form">
                     <?php require "views/partials/_alter-setlist-form.php" ?>
                 </div>
             </div>
