@@ -14,28 +14,6 @@
 
         <div class="flex flex-col">
             <label class="text-emerald-300 mb-2">Data</label>
-            <!-- <div class="relative">
-                <input
-                    id="dt_event"
-                    type="date"
-                    name="dt_event"
-                    class="bg-slate-800 px-3 py-2 rounded-xl text-slate-100 
-                    focus:outline-none focus:ring-1 focus:ring-emerald-300/75
-                    appearance-none pr-10 w-1/2" 
-                />
-
-                <i
-                    class="bi bi-calendar-event absolute right-3 top-1/2 -translate-y-1/2 
-                    text-emerald-300 pointer-events-none text-sm md:hidden sm:block">
-                </i>
-
-                <span
-                    id="dt_event_label"
-                    class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none md:hidden sm:block">
-                    Digite a data do evento...
-                </span>
-            </div> -->
-
             <div class="flex items-center">
                 <div class="relative w-48">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

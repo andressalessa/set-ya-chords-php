@@ -15,8 +15,8 @@ require "rotas.php";
  * O que falta no projeto da cifra
  * 
  * 1. Terminar a edição de cifra ✅
- * 2. Corrigir a pesquisa
- * 3. Criar o cadastro de setlist
+ * 2. Corrigir a pesquisa ✅
+ * 3. Criar o cadastro de setlist ✅
  * 4. Criar a tela de visualização do setlist
  * 5. Melhorar o navbar
  */

@@ -61,7 +61,7 @@
                 </div>
 
                 <!-- Lista editável -->
-                <div class="hidden pl-6 mt-2 text-slate-200 space-y-1">
+                <div class="hidden mt-2 text-slate-200 space-y-1 p-2">
                     <div class="sortable-list" data-setlist-id="<?= $setlist->id ?>">
                         <?php $countItems = 0; ?>
                         <?php foreach ($setlistItems as $setlistItem) : ?>
@@ -76,7 +76,7 @@
                                         <i class="bi bi-list"></i>
                                     </span>
                                     <p class="flex-1"><?= $setlistItem->chord_name ?>
-                                        <span class="text-slate-400 italic">(<?= $setlistItem->artista ?>)</span>
+                                        <span class="text-slate-400 text-sm italic">(<?= $setlistItem->artista ?>)</span>
                                     </p>
                                     <button type="button" class="text-red-400 hover:text-red-600 cursor-pointer" onclick="removeChord(this)">
                                         <i class="bi bi-trash3"></i>
@@ -134,7 +134,8 @@
 
     function openNewScreen(event, page) {
         event.stopPropagation(); // impede que o clique vá para o pai
-        window.location.href = page;
+        // window.location.href = page;
+        window.open(page, "_blank");
     }
 
     function editSetlist(event, header) {
