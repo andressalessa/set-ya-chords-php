@@ -82,11 +82,14 @@
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                });
-                swalWithBootstrapButtons.fire({
-                    title: "Excluído!",
-                    text: "Seu setlist foi excluído!",
-                    icon: "success"
+                }).then(() => {
+                    swalWithBootstrapButtons.fire({
+                        title: "Excluído!",
+                        text: "Seu setlist foi excluído!",
+                        icon: "success"
+                    });
+                }).then(() => {
+                    window.location.reload();
                 });
             } else if (
                 /* Read more about handling dismissals below */

@@ -11,7 +11,7 @@
             <h1 class="text-2xl text-slate-100 hidden md:block">Setlists</h1>
             <a
                 href="/save-setlist"
-                class="border-1 border-emerald-300 group-active:border-cyan-300 px-2 py-1 rounded-xl sm:hidden block">
+                class="border-1 border-emerald-300 group-active:border-cyan-300 px-2 py-1 rounded-xl md:hidden block">
                 Novo setlist
                 <i class="bi bi-file-earmark-plus text-emerald-300 group-active:text-cyan-300"></i>
             </a>
