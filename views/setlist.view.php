@@ -70,13 +70,16 @@
                                     class="flex items-center justify-between bg-slate-700 p-2 rounded"
                                     data-setlistId="<?= $setlist->id ?>"
                                     data-id="<?= $setlistItem->setlist_item_id ?>"
-                                    data-position="<?= $setlistItem->position ?>">
+                                    data-position="<?= $setlistItem->position ?>"
+                                    >
                                     <span class="cursor-move text-slate-400 mr-2">
                                         <i class="bi bi-list"></i>
                                     </span>
-                                    <p class="flex-1"><?= $setlistItem->chord_name ?>
-                                        <span class="text-slate-400 text-sm italic">(<?= $setlistItem->artista ?>)</span>
-                                    </p>
+                                    <a href="/cifra?id=<?= $setlistItem->chord_id ?>" target="_blank" class="flex-1 underline underline-offset-3">
+                                        <p class="flex-1"><?= $setlistItem->chord_name ?>
+                                            <span class="text-slate-400 text-sm italic">(<?= $setlistItem->artista ?>)</span>
+                                        </p>
+                                    </a>
                                     <button type="button" class="text-red-400 hover:text-red-600 cursor-pointer" onclick="removeChord(this)">
                                         <i class="bi bi-trash3"></i>
                                     </button>
@@ -130,8 +133,7 @@
     }
 
     function openNewScreen(event, page) {
-        event.stopPropagation(); // impede que o clique vá para o pai
-        // window.location.href = page;
+        event.stopPropagation();
         window.open(page, "_blank");
     }
 
@@ -214,7 +216,6 @@
             });
     });
 
-
     function addChordToSetlist(chordId) {
         fetch('/add-setlist-item', {
             method: 'POST',
@@ -228,7 +229,7 @@
             }
         }).then(() => {
             closeAddChordModal();
-            location.reload(); // Ou atualizar só a lista via JS
+            location.reload();
         });
     }
 </script>

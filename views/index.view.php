@@ -19,7 +19,7 @@
         </button>
     </form>
 </div>
-<div class="gap-2 mx-auto max-w-sm grid grid-cols-2">
+<div class="gap-2 mx-auto max-w-lg grid grid-cols-1 md:grid-cols-2 md:max-w-xl">
     <?php foreach ($cifras as $cifra) {
         require 'partials/_chord-card.php';
     } ?>

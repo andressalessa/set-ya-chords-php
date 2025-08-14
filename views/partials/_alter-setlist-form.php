@@ -1,12 +1,13 @@
 <div class="p-5 mx-auto">
-    <form class="flex flex-col space-y-4" method="POST" action="/save-setlist">
+    <form class="flex flex-col space-y-4" id="form-<?= $setlist->id ?>" method="POST" action="/save-setlist">
         <input type="hidden" name="_method" value="PUT">
-        <input type="hidden" name="id" value="<?= $setlist->id ?>">
+        <input type="hidden" name="id" id="id" value="<?= $setlist->id ?>">
         <div class="flex flex-col">
             <label class="text-emerald-300">Nome</label>
             <input
                 type="text"
                 name="name"
+                id="name-<?= $setlist->id ?>"
                 placeholder="Digite o nome do setlist..."
                 value="<?php echo $setlist->name; ?>"
                 class="bg-slate-800 px-2 py-1 rounded-xl placeholder:text-slate-300 focus:outline-none focus:ring-1 focus:ring-emerald-300/75" />
@@ -22,16 +23,22 @@
                     <input
                         type="text"
                         name="dt_event"
-                        id="flatpickr-date"
+                        id="flatpickr-date-<?= $setlist->id ?>"
                         class="bg-slate-800 border border-slate-600 text-slate-100 text-sm rounded-lg 
                             focus:ring-emerald-300 focus:border-emerald-300 block w-40 md:w-2/3 lg:w-2/3 pl-10 p-2.5"
                         placeholder="Selecione..."
                         value="<?php echo $setlist->dt_event; ?>">
                 </div>
+            </div>
+            <div class="mt-6 space-x-5 items-center mx-auto">
+                <button
+                    onclick="deleteSetlist(event, <?= $setlist->id ?>)"
+                    class="group border-1 border-emerald-300 active:border-cyan-300 px-1 py-1 rounded-xl w-24 ml-auto">
+                    Excluir
+                    <i class="bi bi-trash3 text-red-400 group-active:text-red-600"></i>
+                </button>
                 <button
                     type="submit"
-                    action="/save-setlist"
-                    method="POST"
                     class="group border-1 border-emerald-300 active:border-cyan-300 px-1 py-1 rounded-xl w-24 ml-auto">
                     Salvar
                     <i class="bi bi-file-earmark-check text-emerald-300 group-active:text-cyan-300"></i>
@@ -40,3 +47,57 @@
         </div>
     </form>
 </div>
+
+<script>
+    function deleteSetlist(event, setlistId) {
+        event.preventDefault();
+        const setlistName = document.getElementById(`name-${setlistId}`).value;
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "bg-emerald-300 text-slate-800 px-4 py-2 rounded-xl hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300",
+                cancelButton: "bg-red-400 text-slate-800 px-4 py-2 rounded-xl hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400",
+                popup: "rounded-xl bg-slate-800 text-slate-100",
+                title: "text-emerald-300",
+                content: "text-slate-300",
+                actions: "space-x-4"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Tem certeza que deseja excluir o setlist?",
+            text: `Setlist: ${setlistName}`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonText: "Não, cancele!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch('/save-setlist', {
+                    method: 'DELETE',
+                    body: JSON.stringify({
+                        setlistId
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                swalWithBootstrapButtons.fire({
+                    title: "Excluído!",
+                    text: "Seu setlist foi excluído!",
+                    icon: "success"
+                });
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Ufa!",
+                    text: "Seu setlist está são e salvo :)",
+                    icon: "error"
+                });
+            }
+        });
+    }
+</script>

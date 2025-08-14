@@ -23,7 +23,7 @@
         <p class="text-md text-slate-300"><?= $cifra->tom ?></p>
         <p class="text-md text-slate-300"><?= $cifra->intro ?></p>
     </div>
-    <div class="ml-4 mt-4 whitespace-pre leading-tight">
+    <div class="ml-4 mt-4 whitespace-pre leading-normal">
         <?php echo $cifra->cifra ?>
     </div>
 </div>

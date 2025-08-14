@@ -82,8 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('toggle-scroll');
     if (toggleButton) {
         toggleButton.addEventListener('click', toggleAutoscroll);
-    } else {
-        console.log("Elemento #toggle-scroll não encontrado!");
     }
 
     const speedUpButton = document.getElementById('speed-up');
@@ -91,7 +89,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (speedUpButton && speedDownButton) {
         speedUpButton.addEventListener('click', () => setScrollSpeed(speedUpButton));
         speedDownButton.addEventListener('click', () => setScrollSpeed(speedDownButton));
-    } else {
-        console.log("Elementos #speed-up ou #speed-down não encontrados!");
     }
 });

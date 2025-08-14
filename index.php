@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 require "database.php";
 require "models/Chord.php";
@@ -20,4 +20,9 @@ require "rotas.php";
  * 4. Criar a tela de visualização do setlist ✅
  * 5. Melhorar o navbar ✅
  * 6. Corrigir pesquisa de setlist ✅
+ * 7. Criar exclusão de cifra
+ * 8. Ajustar o tamanho dos cards das cifras ✅
+ * 9. Criar exclusão de setlist
+ * 10. Ordenar setlists por data decrescente ✅
+ * 11. Futuramente ocultar setlist (mas aí envolve filtros, e tal)
  */

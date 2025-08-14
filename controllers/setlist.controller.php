@@ -12,6 +12,7 @@ if (!$pesquisa) {
                 from setlists sl
                 left join setlist_items si on sl.id = si.setlist_id
                 group by sl.id
+                order by sl.dt_event desc
             ",
             class: Setlist::class
         )->fetchAll();
@@ -27,6 +28,7 @@ if (!$pesquisa) {
                 left join setlist_items si on sl.id = si.setlist_id
                 where sl.name like :pesquisa
                 group by sl.id
+                order by sl.dt_event desc
             ",
             class: Setlist::class,
             params: ['pesquisa' => "%{$pesquisa}%"]
