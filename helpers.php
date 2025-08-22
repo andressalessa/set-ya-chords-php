@@ -21,9 +21,15 @@ function separarCifrasELetras(array $linhas): string
     $cifra = '';
 
     foreach ($linhas as $linha) {
-        $linha = $linha;
+        $linha = $linha; // Remove espaços em branco no início/fim
 
-        $palavras = preg_split('/\s+/', $linha);
+        // Ignora linhas vazias
+        if (empty($linha)) {
+            $cifra .= "<p></p>";
+            continue;
+        }
+
+        $palavras = preg_split('/\s+/', $linha, -1, PREG_SPLIT_NO_EMPTY);
         $total = count($palavras);
         $acordes = 0;
 
@@ -34,9 +40,11 @@ function separarCifrasELetras(array $linhas): string
             }
         }
 
-        // Se mais de 50% das palavras forem acordes, é cifra
-        if ($total > 0 && $acordes / $total >= 0.5) {
-            $cifra .= "<p><span class='text-emerald-300'>$linha</span></p>";
+        // Linha é considerada cifra se:
+        // 1. Tem pelo menos 1 acorde e no máximo 2 palavras, OU
+        // 2. Mais de 50% das palavras são acordes
+        if (($acordes >= 1 && $total <= 2) || ($total > 0 && $acordes / $total >= 0.5)) {
+            $cifra .= "<p class='text-emerald-300 whitespace-pre'>$linha</p>";
         } else {
             $cifra .= "<p>$linha</p>";
         }
