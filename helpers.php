@@ -1,9 +1,13 @@
 <?php
 
+
 function limparCifraParaEdicao(string $htmlFormatado): string
 {
+    // Remove todas as tags <p ...> mas mantém o conteúdo dentro e adiciona quebras de linha
+    $semP = preg_replace('/<\/?p[^>]*>/i', "", $htmlFormatado);
+
     // Remove todas as tags <span ...> mas mantém o conteúdo dentro
-    $semSpan = preg_replace('/<span[^>]*>(.*?)<\/span>/i', '$1', $htmlFormatado);
+    $semSpan = preg_replace('/<span[^>]*>(.*?)<\/span>/i', '$1', $semP);
 
     // Substitui <br> e <br /> por quebras de linha reais
     $comQuebras = preg_replace('/<br\s*\/?>/i', "\n", $semSpan);
@@ -17,7 +21,7 @@ function separarCifrasELetras(array $linhas): string
     $cifra = '';
 
     foreach ($linhas as $linha) {
-        $linha = trim($linha);
+        $linha = $linha;
 
         $palavras = preg_split('/\s+/', $linha);
         $total = count($palavras);
@@ -32,9 +36,9 @@ function separarCifrasELetras(array $linhas): string
 
         // Se mais de 50% das palavras forem acordes, é cifra
         if ($total > 0 && $acordes / $total >= 0.5) {
-            $cifra .= "<span class='text-emerald-300'>$linha</span><br>";
+            $cifra .= "<p><span class='text-emerald-300'>$linha</span></p>";
         } else {
-            $cifra .= "$linha<br>";
+            $cifra .= "<p>$linha</p>";
         }
     }
 
