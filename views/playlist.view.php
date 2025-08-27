@@ -47,7 +47,7 @@
 
                     <i
                         class="bi bi-box-arrow-up-right text-slate-100 my-auto ml-4 text-lg"
-                        onclick="openNewScreen(event, '/play-playlist?id=<?= $playlist->id ?>')"></i>
+                        onclick="openNewScreen(event, '/play-chord?id=<?= $playlist->id ?>')"></i>
                     <i
                         class="bi bi-pencil-square ml-2 text-lg"
                         onclick="editPlaylist(event, this)"></i>
@@ -160,7 +160,7 @@
 
     function removeChord(btn) {
         const itemId = btn.closest('[data-id]').dataset.id;
-        const playlistId = btn.closest('[data-id]').dataset.playlistid;
+        const playlistId = btn.closest('[data-id]').dataset.playlistId;
 
         fetch('/remove-playlist-item', {
             method: 'POST',
@@ -201,7 +201,7 @@
                 results.innerHTML = '';
                 data.forEach(chord => {
                     const btn = document.createElement('button');
-                    btn.textContent = `${chord.nome} (${chord.artista})`;
+                    btn.textContent = `${chord.chord_name} (${chord.artist})`;
                     btn.className = "block w-full text-left p-2 hover:bg-slate-600 rounded";
                     btn.onclick = () => addChordToPlaylist(chord.id);
                     results.appendChild(btn);

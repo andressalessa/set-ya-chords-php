@@ -7,6 +7,7 @@ require "database.php";
 require "models/Chord.php";
 require "models/Playlist.php";
 require "models/PlaylistItems.php";
+require "models/PlayChordDTO.php";
 require "helpers.php";
 require "routes.php";
 

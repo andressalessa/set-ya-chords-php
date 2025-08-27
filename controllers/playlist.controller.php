@@ -14,7 +14,7 @@ if (!$pesquisa) {
                 group by pl.id
                 order by pl.dt_event desc
             ",
-            // class: Playlist::class
+            class: PlayChordDTO::class
         )->fetchAll();
 } else {
     $playlists = $database
@@ -30,12 +30,12 @@ if (!$pesquisa) {
                 group by pl.id
                 order by pl.dt_event desc
             ",
-            // class: Playlist::class,
+            class: PlayChordDTO::class,
             params: ['pesquisa' => "%{$pesquisa}%"]
         )->fetchAll();
 }
 
-dd($playlists);
+// dd($playlists);
 
 $playlistItems = $database
     ->query(
@@ -52,7 +52,7 @@ $playlistItems = $database
             inner join playlists pl on c.id = pli.chord_id
             order by pli.position
         ",
-        // class: PlaylistItems::class
+        class: PlayChordDTO::class
     )
     ->fetchAll();
 
