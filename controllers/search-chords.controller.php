@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 
 // Captura os parâmetros GET
 $q = isset($_GET['q']) ? trim($_GET['q']) : '';
-$setlistId = isset($_GET['setlistId']) ? (int) $_GET['setlistId'] : 0;
+$playlistId = isset($_GET['playlistId']) ? (int) $_GET['playlistId'] : 0;
 
 // Validação simples
 if (strlen($q) < 2) {
@@ -19,13 +19,13 @@ $chords = $database->query(
      WHERE (c.nome LIKE :q OR c.artista LIKE :q)
        AND c.id NOT IN (
            SELECT si.chord_id
-             FROM setlist_items si
-            WHERE si.setlist_id = :sid
+             FROM playlist_items si
+            WHERE si.playlist_id = :sid
        )
      ORDER BY c.nome ASC
      LIMIT 20
 ",
-    params: [':q' => '%' . $q . '%', ':sid' => $setlistId],
+    params: [':q' => '%' . $q . '%', ':sid' => $playlistId],
     class: Chord::class
 )->fetchAll();
 

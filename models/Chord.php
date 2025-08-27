@@ -2,9 +2,9 @@
 
 class Chord {
     public $id;
-    public $nome;
-    public $artista;
-    public $tom;
+    public $chord_name;
+    public $artist;
+    public $tone;
     public $intro;
-    public $cifra;
+    public $chord;
 }

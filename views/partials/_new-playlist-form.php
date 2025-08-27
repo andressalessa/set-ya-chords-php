@@ -1,11 +1,11 @@
 <div class="px-5 mx-auto">
-    <form class="flex flex-col mt-4 space-y-4" method="POST" action="/save-setlist">
+    <form class="flex flex-col mt-4 space-y-4" method="POST" action="/save-playlist">
         <div class="flex flex-col">
             <label class="text-emerald-300">Nome</label>
             <input
                 type="text"
                 name="name"
-                placeholder="Digite o nome do setlist..."
+                placeholder="Digite o nome do playlist..."
                 class="bg-slate-800 px-2 py-1 rounded-xl placeholder:text-slate-300 focus:outline-none focus:ring-1 focus:ring-emerald-300/75" />
         </div>
 

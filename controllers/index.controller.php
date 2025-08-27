@@ -3,14 +3,14 @@
 $pesquisa = $_REQUEST['pesquisar'] ?? null;
 
 if (!$pesquisa) {
-    $cifras = $database
+    $chords = $database
         ->query(
             "select * from chords",
             Chord::class
         )
         ->fetchAll();
 } else {
-    $cifras = $database
+    $chords = $database
         ->query(
             "select * from chords where nome like :pesquisa or artista like :pesquisa",
             Chord::class,
@@ -19,4 +19,4 @@ if (!$pesquisa) {
         ->fetchAll();
 }
 
-view('index', ['cifras' => $cifras]);
+view('index', ['chords' => $chords]);

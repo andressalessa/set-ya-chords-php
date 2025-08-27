@@ -1,7 +1,7 @@
 <div class="flex ml-4">
     <div class="group flex mt-4">
         <!-- <a
-            href="/editar-cifra?id=<?= $cifra->id ?>"
+            href="/update-chord?id=<?= $chord->id ?>"
             class="border-1 border-emerald-300 group-active:border-cyan-300 px-2 py-1 rounded-xl">
             Editar cifra
             <i class="bi bi-file-earmark-plus text-emerald-300 group-active:text-cyan-300"></i>
@@ -44,25 +44,25 @@
             <i class="bi bi-chevron-double-left"></i>
         </button>
         <div id="song-list" class="shadow-sm shadow-slate-700 rounded p-2 -mr-4">
-            <?php foreach ($cifras as $cifra) : ?>
-                <a href="#cifra-<?= $cifra['chord_id'] ?>" class="underline underline-offset-4">
-                    <p><?= $cifra['chord_name'] ?></p>
+            <?php foreach ($chords as $chord) : ?>
+                <a href="#chord-<?= $chord['chord_id'] ?>" class="underline underline-offset-4">
+                    <p><?= $chord['chord_name'] ?></p>
                 </a>
             <?php endforeach; ?>
         </div>
     </div>
 </div>
 
-<?php foreach ($cifras as $cifra) : ?>
-    <div id="cifra-<?= $cifra['chord_id'] ?>" class="flex flex-col mt-4">
+<?php foreach ($chords as $chord) : ?>
+    <div id="chord-<?= $chord['chord_id'] ?>" class="flex flex-col mt-4">
         <div class="flex flex-col mx-auto justify-center items-center">
-            <h1 class="text-2xl text-slate-100"><?= $cifra['chord_name'] ?></h1>
-            <h2 class="text-lg text-slate-400 italic"><?= $cifra['artist'] ?></h2>
-            <p class="text-md text-slate-300"><?= $cifra['tom'] ?></p>
-            <p class="text-md text-slate-300"><?= $cifra['intro'] ?></p>
+            <h1 class="text-2xl text-slate-100"><?= $chord['chord_name'] ?></h1>
+            <h2 class="text-lg text-slate-400 italic"><?= $chord['artist'] ?></h2>
+            <p class="text-md text-slate-300"><?= $chord['tone'] ?></p>
+            <p class="text-md text-slate-300"><?= $chord['intro'] ?></p>
         </div>
         <div class="ml-4 mt-4 whitespace-pre leading-tight">
-            <?php echo $cifra['cifra'] ?>
+            <?php echo $chord['chord'] ?>
         </div>
     </div>
 <?php endforeach ?>

@@ -1,15 +1,14 @@
 <div class="px-4">
-    <form class="flex flex-col mt-4" method="POST" action="/salvar-cifra">
-        <input type="hidden" name="_method" value="PUT">
-        <input type="hidden" name="id" value="<?= $id ?>">
+    <form class="flex flex-col mt-4" method="POST" action="/save-chord">
         <label class="text-emerald-300">Cifra</label>
         <textarea 
-            name="cifra" 
+            name="chord" 
+            placeholder="Digite a cifra..."
             class="bg-slate-800 px-2 py-1 rounded-xl 
             placeholder:text-slate-300 focus:outline-none 
             focus:ring-1 focus:ring-emerald-300/75
-            h-[40rem] whitespace-pre"
-        ><?= htmlspecialchars($cifra) ?></textarea>
+            h-[40rem]"
+        ></textarea>
         <button
             type="submit"
             class="group mt-2 border-1 border-emerald-300 active:border-cyan-300 
