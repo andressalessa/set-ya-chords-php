@@ -18,14 +18,14 @@ function limparCifraParaEdicao(string $htmlFormatado): string
 
 function separarCifrasELetras(array $linhas): string
 {
-    $cifra = '';
+    $chord = '';
 
     foreach ($linhas as $linha) {
         $linha = $linha; // Remove espaços em branco no início/fim
 
         // Ignora linhas vazias
         if (empty($linha)) {
-            $cifra .= "<p></p>";
+            $chord .= "<p></p>";
             continue;
         }
 
@@ -44,13 +44,13 @@ function separarCifrasELetras(array $linhas): string
         // 1. Tem pelo menos 1 acorde e no máximo 2 palavras, OU
         // 2. Mais de 50% das palavras são acordes
         if (($acordes >= 1 && $total <= 2) || ($total > 0 && $acordes / $total >= 0.5)) {
-            $cifra .= "<p class='text-emerald-300 whitespace-pre'>$linha</p>";
+            $chord .= "<p class='text-emerald-300 whitespace-pre'>$linha</p>";
         } else {
-            $cifra .= "<p>$linha</p>";
+            $chord .= "<p>$linha</p>";
         }
     }
 
-    return $cifra;
+    return $chord;
 }
 
 function buscarHeaderEFormatarPorPrefixo(array &$linhas, string $prefix)

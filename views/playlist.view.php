@@ -1,18 +1,11 @@
-<!-- 
-    setlists -> lista diversos setlists -> cards de setlist
-    play-setlist -> tela de visualização de setlist
-    novo-setlist -> tela de cadastro de setlist (nome do setlist, data e hora criação) -> ao salvar redireciona pra editar-setlist
-    editar-setlist -> tela de edição de setlist (alterar nome do setlist, incluir cifras, excluir cifras, reordenar cifras)
--->
-
 <div class="md:mt-6 md:grid md:grid-cols-2 md:gap-2">
     <div class="flex flex-col space-y-4 ">
         <div class="flex mt-4 mx-auto">
-            <h1 class="text-2xl text-slate-100 hidden md:block">Setlists</h1>
+            <h1 class="text-2xl text-slate-100 hidden md:block">Playlists</h1>
             <a
-                href="/save-setlist"
+                href="/save-playlist"
                 class="border-1 border-emerald-300 group-active:border-cyan-300 px-2 py-1 rounded-xl md:hidden block">
-                Novo setlist
+                Nova playlist
                 <i class="bi bi-file-earmark-plus text-emerald-300 group-active:text-cyan-300"></i>
             </a>
         </div>
@@ -30,54 +23,54 @@
             </form>
         </div>
 
-        <?php foreach ($setlists as $setlist) : ?>
+        <?php foreach ($playlists as $playlist) : ?>
             <div class="gap-2 mx-auto max-w-lg min-w-sm">
                 <div
                     class="group bg-slate-800 text-slate-100 p-2 rounded-md flex justify-between items-center hover:bg-slate-700 cursor-pointer"
-                    onclick="toggleSetlist(this)">
-                    <?php if (!empty($setlist->total_chords)) : ?>
+                    onclick="togglePlaylist(this)">
+                    <?php if (!empty($playlist->total_chords)) : ?>
                         <i class="bi bi-chevron-right text-slate-100 my-auto transition-transform"></i>
                     <?php else: ?>
                         <i class="bi bi-chevron-right text-slate-100 my-auto transition-transform sr-only"></i>
                     <?php endif; ?>
 
                     <div class="flex items-center flex-1 ml-2">
-                        <p><?= $setlist->name ?></p>
+                        <p><?= $playlist->playlist_name ?></p>
                         <p class="text-xs text-slate-300 italic ml-2">
-                            (<?= $setlist->total_chords ?> cifras)
+                            (<?= $playlist->total_chords ?> cifras)
                         </p>
                     </div>
 
                     <p class="text-xs text-slate-300 italic ml-4">
-                        <?= $setlist->dt_event ?>
+                        <?= $playlist->dt_event ?>
                     </p>
 
                     <i
                         class="bi bi-box-arrow-up-right text-slate-100 my-auto ml-4 text-lg"
-                        onclick="openNewScreen(event, '/play-setlist?id=<?= $setlist->id ?>')"></i>
+                        onclick="openNewScreen(event, '/play-chord?id=<?= $playlist->id ?>')"></i>
                     <i
                         class="bi bi-pencil-square ml-2 text-lg"
-                        onclick="editSetlist(event, this)"></i>
+                        onclick="editPlaylist(event, this)"></i>
                 </div>
 
                 <div class="hidden mt-2 text-slate-200 space-y-1 p-2">
-                    <div class="sortable-list" data-setlist-id="<?= $setlist->id ?>">
+                    <div class="sortable-list" data-playlist-id="<?= $playlist->id ?>">
                         <?php $countItems = 0; ?>
-                        <?php foreach ($setlistItems as $setlistItem) : ?>
-                            <?php if ($setlistItem->setlist_id == $setlist->id) : ?>
+                        <?php foreach ($playlistItems as $playlistItem) : ?>
+                            <?php if ($playlistItem->playlist_id == $playlist->id) : ?>
                                 <?php $countItems++; ?>
                                 <div
                                     class="flex items-center justify-between bg-slate-700 p-2 rounded"
-                                    data-setlistId="<?= $setlist->id ?>"
-                                    data-id="<?= $setlistItem->setlist_item_id ?>"
-                                    data-position="<?= $setlistItem->position ?>"
+                                    data-playlistId="<?= $playlist->id ?>"
+                                    data-id="<?= $playlistItem->playlist_item_id ?>"
+                                    data-position="<?= $playlistItem->position ?>"
                                     >
                                     <span class="cursor-move text-slate-400 mr-2">
                                         <i class="bi bi-list"></i>
                                     </span>
-                                    <a href="/cifra?id=<?= $setlistItem->chord_id ?>" target="_blank" class="flex-1 underline underline-offset-3">
-                                        <p class="flex-1"><?= $setlistItem->chord_name ?>
-                                            <span class="text-slate-400 text-sm italic">(<?= $setlistItem->artista ?>)</span>
+                                    <a href="/chord?id=<?= $playlistItem->chord_id ?>" target="_blank" class="flex-1 underline underline-offset-3">
+                                        <p class="flex-1"><?= $playlistItem->chord_name ?>
+                                            <span class="text-slate-400 text-sm italic">(<?= $playlistItem->artist ?>)</span>
                                         </p>
                                     </a>
                                     <button type="button" class="text-red-400 hover:text-red-600 cursor-pointer" onclick="removeChord(this)">
@@ -91,13 +84,13 @@
                     <button 
                         type="button" 
                         class="mt-2 px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded"
-                        onclick="openAddChordModal(<?= $setlist->id ?>, <?= $countItems + 1 ?>)">
+                        onclick="openAddChordModal(<?= $playlist->id ?>, <?= $countItems + 1 ?>)">
                         + Adicionar cifra
                     </button>
                 </div>
 
                 <div class="shadow-sm shadow-slate-700 rounded hidden w-[20rem] mt-6 p-1 mx-auto" id="edit-form">
-                    <?php require "views/partials/_alter-setlist-form.php" ?>
+                    <?php require "views/partials/_update-playlist-form.php" ?>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -116,15 +109,15 @@
     <div>
         <div class="md:shadow-sm md:shadow-slate-700 md:rounded hidden md:block w-[25rem] mt-6 ml-6 p-4">
             <div class="flex mt-2">
-                <h1 class="text-xl text-slate-100 mx-auto">Novo setlist</h1>
+                <h1 class="text-xl text-slate-100 mx-auto">Novo playlist</h1>
             </div>
-            <?php require "views/partials/_new-setlist-form.php" ?>
+            <?php require "views/partials/_new-playlist-form.php" ?>
         </div>
     </div>
 </div>
 
 <script>
-    function toggleSetlist(header) {
+    function togglePlaylist(header) {
         const icon = header.querySelector(".bi-chevron-right");
         const list = header.nextElementSibling;
 
@@ -137,7 +130,7 @@
         window.open(page, "_blank");
     }
 
-    function editSetlist(event, header) {
+    function editPlaylist(event, header) {
         event.stopPropagation();
         const parent = header.parentElement.parentElement;
         const form = parent.querySelector("#edit-form");
@@ -149,12 +142,12 @@
             handle: '.cursor-move',
             animation: 150,
             onEnd: function(evt) {
-                const setlistId = evt.to.dataset.setlistId;
+                const playlistId = evt.to.dataset.playlistId;
                 const order = Array.from(evt.to.children).map(el => el.dataset.position);
-                fetch('/update-setlist-order', {
+                fetch('/update-playlist-order', {
                     method: 'POST',
                     body: JSON.stringify({
-                        setlistId,
+                        playlistId,
                         order
                     }),
                     headers: {
@@ -167,13 +160,13 @@
 
     function removeChord(btn) {
         const itemId = btn.closest('[data-id]').dataset.id;
-        const setlistId = btn.closest('[data-id]').dataset.setlistid;
+        const playlistId = btn.closest('[data-id]').dataset.playlistId;
 
-        fetch('/remove-setlist-item', {
+        fetch('/remove-playlist-item', {
             method: 'POST',
             body: JSON.stringify({
                 itemId,
-                setlistId
+                playlistId
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -183,11 +176,11 @@
         });
     }
 
-    let currentSetlistId = null;
+    let currentPlaylistId = null;
     let nextPosition = null;
 
-    function openAddChordModal(setlistId, nexPosition) {
-        currentSetlistId = setlistId;
+    function openAddChordModal(playlistId, nexPosition) {
+        currentPlaylistId = playlistId;
         nextPosition = nexPosition;
         document.getElementById('addChordModal').classList.remove('hidden');
     }
@@ -201,26 +194,26 @@
     document.getElementById('searchChord').addEventListener('input', function() {
         const query = this.value;
         if (query.length < 2) return;
-        fetch(`/search-chords?q=${encodeURIComponent(query)}&setlistId=${currentSetlistId}`)
+        fetch(`/search-chords?q=${encodeURIComponent(query)}&playlistId=${currentPlaylistId}`)
             .then(res => res.json())
             .then(data => {
                 const results = document.getElementById('searchResults');
                 results.innerHTML = '';
                 data.forEach(chord => {
                     const btn = document.createElement('button');
-                    btn.textContent = `${chord.nome} (${chord.artista})`;
+                    btn.textContent = `${chord.chord_name} (${chord.artist})`;
                     btn.className = "block w-full text-left p-2 hover:bg-slate-600 rounded";
-                    btn.onclick = () => addChordToSetlist(chord.id);
+                    btn.onclick = () => addChordToPlaylist(chord.id);
                     results.appendChild(btn);
                 });
             });
     });
 
-    function addChordToSetlist(chordId) {
-        fetch('/add-setlist-item', {
+    function addChordToPlaylist(chordId) {
+        fetch('/add-playlist-item', {
             method: 'POST',
             body: JSON.stringify({
-                setlistId: currentSetlistId,
+                playlistId: currentPlaylistId,
                 chordId,
                 nextPosition
             }),

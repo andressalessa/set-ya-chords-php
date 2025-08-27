@@ -5,10 +5,11 @@
 
 require "database.php";
 require "models/Chord.php";
-require "models/Setlist.php";
-require "models/SetlistItems.php";
+require "models/Playlist.php";
+require "models/PlaylistItems.php";
+require "models/PlayChordDTO.php";
 require "helpers.php";
-require "rotas.php";
+require "routes.php";
 
 /**
  * TODO
@@ -16,13 +17,13 @@ require "rotas.php";
  * 
  * 1. Terminar a edição de cifra ✅
  * 2. Corrigir a pesquisa ✅
- * 3. Criar o cadastro de setlist ✅
- * 4. Criar a tela de visualização do setlist ✅
+ * 3. Criar o cadastro de playlist ✅
+ * 4. Criar a tela de visualização do playlist ✅
  * 5. Melhorar o navbar ✅
- * 6. Corrigir pesquisa de setlist ✅
+ * 6. Corrigir pesquisa de playlist ✅
  * 7. Criar exclusão de cifra
  * 8. Ajustar o tamanho dos cards das cifras ✅
- * 9. Criar exclusão de setlist
- * 10. Ordenar setlists por data decrescente ✅
- * 11. Futuramente ocultar setlist (mas aí envolve filtros, e tal)
+ * 9. Criar exclusão de playlist
+ * 10. Ordenar playlists por data decrescente ✅
+ * 11. Futuramente ocultar playlist (mas aí envolve filtros, e tal)
  */

@@ -2,7 +2,7 @@
 
 $id = $_REQUEST['id'];
 
-$cifra = $database
+$chord = $database
     ->query(
         "select * from chords where id = :id", 
         Chord::class, 
@@ -10,4 +10,4 @@ $cifra = $database
     )
     ->fetch();
 
-view('cifra', ['cifra' => $cifra]);
+view('chord', ['chord' => $chord]);

@@ -1,6 +1,6 @@
 <div class="group flex mt-4 mx-auto">
     <a
-        href="/nova-cifra"
+        href="/new-chord"
         class="border-1 border-emerald-300 group-active:border-cyan-300 px-2 py-1 rounded-xl">
         Nova cifra
         <i class="bi bi-file-earmark-plus text-emerald-300 group-active:text-cyan-300"></i>
@@ -20,7 +20,7 @@
     </form>
 </div>
 <div class="gap-2 mx-auto max-w-lg grid grid-cols-1 md:grid-cols-2 md:max-w-xl">
-    <?php foreach ($cifras as $cifra) {
+    <?php foreach ($chords as $chord) {
         require 'partials/_chord-card.php';
     } ?>
 </div>

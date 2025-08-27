@@ -6,6 +6,10 @@ class Database
 
     public function __construct()
     {
+        // prod
+        // $this->db = new PDO("sqlite:/home/playchords/data/database.sqlite");
+        
+        // local
         $this->db = new PDO("sqlite:database.sqlite");
         // $this->db = new PDO($this->getDsn($config));
     }
