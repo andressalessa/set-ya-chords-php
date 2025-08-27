@@ -6,12 +6,15 @@ class Database
 
     public function __construct()
     {
-        // prod
-        // $this->db = new PDO("sqlite:/home/playchords/data/database.sqlite");
-        
-        // local
-        $this->db = new PDO("sqlite:database.sqlite");
-        // $this->db = new PDO($this->getDsn($config));
+        $basePath = __DIR__; // diretório do arquivo atual
+
+        if (strpos($basePath, '/home/playchords') === 0) {
+            // Produção (AlwaysData)
+            $this->db = new PDO("sqlite:/home/playchords/data/database.sqlite");
+        } else {
+            // Local
+            $this->db = new PDO("sqlite:database.sqlite");
+        }
     }
 
     private function getDsn($config)
@@ -70,7 +73,7 @@ class Database
         unset($data['id']);
 
         $data = array_filter($data, fn($val, $key) => $val !== null, ARRAY_FILTER_USE_BOTH);
-        
+
         $set = implode(', ', array_map(fn($key) => "$key = :$key", array_keys($data)));
 
         $query = "UPDATE $table SET $set WHERE id = :id";
