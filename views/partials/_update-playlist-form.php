@@ -54,12 +54,15 @@
         const playlistName = document.getElementById(`name-${playlistId}`).value;
 
         const swalWithBootstrapButtons = Swal.mixin({
+            background: '#334155', // slate-800
+            color: 'rgb(226 232 240)', // slate-200
+            iconColor: 'rgb(245 158 11)', // opcional: amber-500 pro "warning"
             customClass: {
-                confirmButton: "bg-emerald-300 text-slate-800 px-4 py-2 rounded-xl hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300",
-                cancelButton: "bg-red-400 text-slate-800 px-4 py-2 rounded-xl hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400",
-                popup: "rounded-xl bg-slate-800 text-slate-100",
-                title: "text-emerald-300",
-                content: "text-slate-300",
+                confirmButton: "bg-emerald-600 text-slate-100 px-4 py-2 rounded-xl hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-400",
+                cancelButton: "bg-slate-600 text-slate-100 px-4 py-2 rounded-xl hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400",
+                popup: "rounded-xl", // só o radius aqui
+                title: "text-cyan-300",
+                htmlContainer: "text-slate-400", // <— era `content`; o correto é `htmlContainer`
                 actions: "space-x-4"
             },
             buttonsStyling: false

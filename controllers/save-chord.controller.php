@@ -46,3 +46,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_method']) && $_POST[
         echo 'Nao foi possivel salvar a cifra';
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    $data = json_decode(file_get_contents('php://input'), true);
+    $chordId = $data['chordId'] ?? null;
+
+    if ($chordId) {
+        $chord = new Chord();
+        $chord->id = $chordId;
+        $database->deleteFromObject('chords', $chord);
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'ok']);
+    }
+}
