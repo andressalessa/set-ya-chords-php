@@ -86,12 +86,6 @@
                         'Content-Type': 'application/json'
                     }
                 }).then(() => {
-                    swalWithBootstrapButtons.fire({
-                        title: "Excluído!",
-                        text: "Seu playlist foi excluído!",
-                        icon: "success"
-                    });
-                }).then(() => {
                     window.location.reload();
                 });
             } else if (

@@ -70,12 +70,6 @@
                         'Content-Type': 'application/json'
                     }
                 }).then(() => {
-                    swalWithBootstrapButtons.fire({
-                        title: "Excluída!",
-                        text: "Sua cifra foi excluída!",
-                        icon: "success"
-                    });
-                }).then(() => {
                     window.location.reload();
                 });
             } else if (
